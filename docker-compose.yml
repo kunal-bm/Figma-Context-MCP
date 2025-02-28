@@ -1,0 +1,14 @@
+services:
+  figma-mcp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${PORT:-3333}:${PORT:-3333}"
+    environment:
+      - NODE_ENV=production
+      - FIGMA_API_KEY=${FIGMA_API_KEY}
+      - PORT=${PORT:-3333}
+    restart: unless-stopped
+    volumes:
+      - ./.env:/app/.env:ro
