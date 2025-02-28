@@ -27,4 +27,6 @@ ENV PORT=${PORT:-3333}
 ENV FIGMA_API_KEY=${FIGMA_API_KEY}
 
 # Start the server with proper error handling
-CMD ["sh", "-c", "node dist/index.js || echo 'Server failed to start, check your environment variables and configuration'"] 
+# Start of Selection
+CMD ["sh", "-c", "npx figma-developer-mcp --figma-api-key=${FIGMA_API_KEY} || echo 'Server failed to start, check your environment variables and configuration'"]
+# End of Selection
